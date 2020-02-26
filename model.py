@@ -3,6 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # used for sort
 class Similarity:
+
     def __init__(self, index, distance):
         self.index = index
         self.distance = distance
@@ -52,7 +53,6 @@ class VectorSpaceModel:
         sorted_list = sorted_list[:n]
         similar_docs = []
 
-        for j in range(len(sorted_list)):
-            index = sorted_list[j].index
-            similar_docs.append(self.docs[index])
+        for similar in sorted_list:
+            similar_docs.append(self.docs[similar.index])
         return similar_docs

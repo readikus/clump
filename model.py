@@ -1,7 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
 # used for sort
 class Similarity:
     def __init__(self, index, distance):
@@ -15,13 +14,11 @@ class VectorSpaceModel:
             self.train(docs)
 
     def train(self, docs):
-        print('training on ' + str(len(docs)))
         self.docs = docs
         # create the tf-idf model
         self.vectorizer = TfidfVectorizer(max_features=250000, use_idf=True, stop_words='english')
         self.vectors = self.vectorizer.fit_transform(docs)
         return self.vectorizer
-
 
     def find_similar(self, doc, *args, **kwargs):
         """Find similar documents from the training data
@@ -39,7 +36,6 @@ class VectorSpaceModel:
         """
         n = kwargs.get('n', 5)
         distance_threshold = kwargs.get('distance_threshold', 0.4)
-
 
         # for each doc, find the most similar one...
         distances = []

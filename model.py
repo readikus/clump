@@ -45,12 +45,12 @@ class VectorSpaceModel:
         distances = []
         doc_vector = self.vectorizer.transform([doc])
 
-        for j in range(self.vectors.shape[0]):
+        for i in range(self.vectors.shape[0]):
             # find distance to the jth doc
-            distance_i_j = cosine_similarity(doc_vector, self.vectors[j])
+            distance = cosine_similarity(doc_vector, self.vectors[i])
             # ignore elements that are too far away
-            if distance_i_j > distance_threshold:
-                distances.append(Similarity(j, distance_i_j[0]))
+            if distance[0] > distance_threshold:
+                distances.append(Similarity(i, distance[0]))
 
         sorted_list = sorted(distances, key=lambda x: (x.distance), reverse=True)
         sorted_list = sorted_list[:n]

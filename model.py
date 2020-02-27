@@ -41,18 +41,13 @@ class VectorSpaceModel:
         # for each doc, find the most similar one...
         distances = []
         doc_vector = self.vectorizer.transform([doc])
-
         for i in range(self.vectors.shape[0]):
-            # find distance to the jth doc
+            # find distance to the ith doc
             distance = cosine_similarity(doc_vector, self.vectors[i])
             # ignore elements that are too far away
             if distance[0] > distance_threshold:
                 distances.append(Similarity(i, distance[0]))
-
-        sorted_list = sorted(distances, key=lambda x: (x.distance), reverse=True)
-        sorted_list = sorted_list[:n]
-        similar_docs = []
-
-        for similar in sorted_list:
-            similar_docs.append(self.docs[similar.index])
-        return similar_docs
+        
+        # sort the list and pick the top n records
+        sorted_list = sorted(distances, key=lambda x: (x.distance), reverse=True)[:n]
+        return [self.docs[similar.index] for similar in sorted_list]

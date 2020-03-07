@@ -14,9 +14,15 @@ test_docs = ["Yeti SB150 with SRAM AXS",
     "Kirt Voreis Owns Whistler Mountain Bike Park",
     "I like sausages"]
 
+
+#model = VectorSpaceModel(test_docs)
+model.cluster(training_docs)
+
 # display the similar documents
 for test_doc in test_docs:
     similar = model.find_similar(test_doc)
 
     print('input: ' + test_doc)
     print(similar)
+ 
+

@@ -30,6 +30,7 @@ print(similar)
 
 ## Road Map
 
+* Document clustering
 * Automatic tagging
 * Topic classification
 * Performance improvements by pre clustering documents into large groups, then searching just the similar clusters.

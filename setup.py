@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="clump",
-    version="0.0.3",
+    version="0.0.4",
     author="Ian Read",
     author_email="ianharveyread@gmail.com",
     description="Easy-to-use package for grouping, tagging and finding similar documents, using advanced natural language processing techniques",

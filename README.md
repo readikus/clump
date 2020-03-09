@@ -8,6 +8,8 @@ Many developers don’t have the time to invest in learning the best practices f
 
 ## How to use:
 
+[https://medium.com/@readikus/clump-a-python-package-for-easily-finding-related-stories-and-documents-3ed992a35f8c](This blog introduces the key functionality and how to use the package).
+
 Simply install the library with pip and import the VectorSpaceModel 
 
 ```python

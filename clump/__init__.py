@@ -1,1 +1,1 @@
-from . import vector_space_model
+from . import model
